@@ -33,6 +33,13 @@ buildscript {
     classpath "org.jfrog.buildinfo:build-info-extractor-gradle:latest.release"
   }
 }
+plugins {
+    // Apply the java-library plugin to add support for Java Library
+    id 'java-library'
+
+    id "com.jfrog.artifactory" version "4.16.1"
+}
+
 apply plugin: "com.jfrog.artifactory"
 
 allprojects {
