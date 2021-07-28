@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 buildscript {
   repositories {
     mavenCentral()
@@ -24,9 +24,19 @@ buildscript {
     }
   }
 }
+*/
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "org.jfrog.buildinfo:build-info-extractor-gradle:latest.release"
+  }
+}
+apply plugin: "com.jfrog.artifactory"
 
 allprojects {
-  apply plugin: 'com.jfrog.artifactory'
+  //apply plugin: 'com.jfrog.artifactory'
   //apply plugin: 'artifactory'
   apply plugin: 'idea'
   configure(subprojects.findAll { new File(it.projectDir, 'src').directory }) {
